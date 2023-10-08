@@ -3,3 +3,6 @@ lint:
 
 build:
 	@cargo build
+
+build-release:
+	@cargo build --release
