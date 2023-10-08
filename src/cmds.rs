@@ -3,9 +3,20 @@ use clap::{Parser, Subcommand};
 use crate::lifecycle::cmds::LifecycleCmds;
 use crate::sorters::cmds::SorterCmds;
 
+const BANNER: &'static str = "
+
+    ██████╗░██████╗░░█████╗░░█████╗░███╗░░░███╗
+    ██╔══██╗██╔══██╗██╔══██╗██╔══██╗████╗░████║
+    ██████╦╝██████╔╝██║░░██║██║░░██║██╔████╔██║
+    ██╔══██╗██╔══██╗██║░░██║██║░░██║██║╚██╔╝██║
+    ██████╦╝██║░░██║╚█████╔╝╚█████╔╝██║░╚═╝░██║
+    ╚═════╝░╚═╝░░╚═╝░╚════╝░░╚════╝░╚═╝░░░░░╚═╝
+
+🧹 Sort and clean your files like screenshots on your desktop your way";
+
 #[derive(Parser)]
 #[command(author, author, version)]
-#[command(about = "🧹 broom - clean your temporary files based on your cleaning plans with ease")]
+#[command(about = BANNER)]
 pub struct Cli {
     #[command(subcommand)]
     pub command: Option<Commands>,
@@ -13,7 +24,9 @@ pub struct Cli {
 
 #[derive(Subcommand)]
 pub enum Commands {
+    /// View the current config
     Config,
+
     /// Manage lifecycle rules
     Lifecycle(LifecycleCmds),
 

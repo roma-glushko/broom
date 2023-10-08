@@ -1,6 +1,6 @@
 [package]
 name = "broom"
-description = "Sort and clean your temporary files like screenshots on your desktop your way"
+description = "Sort and clean your files like screenshots on your desktop your way"
 repository = "https://github.com/roma-glushko/broom"
 categories = ["command-line-interface", "command-line-utilities"]
 authors = ["Roman Hlushko <roman.glushko.m@gmail.com>"]

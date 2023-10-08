@@ -57,6 +57,7 @@ impl Config {
         return &self.sorters;
     }
 
+    /// Save the current state of config
     pub fn save(&self, config_path: &PathBuf) -> io::Result<()> {
         debug!("Saving Config: {:?} {}", &self, config_path.display());
 

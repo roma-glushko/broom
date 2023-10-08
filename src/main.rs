@@ -76,7 +76,7 @@ fn main() {
             let config_path = get_config_path();
             let config = Config::load(config_path).unwrap();
 
-            println!("{:?}", config);
+            println!("{:#?}", config);
 
             ()
         }
