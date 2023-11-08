@@ -1,4 +1,6 @@
+use clap::builder::TypedValueParser as _;
 use clap::{Parser, Subcommand};
+use log::LevelFilter;
 
 use crate::lifecycle::cmds::LifecycleCmds;
 use crate::sorters::cmds::SorterCmds;
@@ -18,6 +20,16 @@ const BANNER: &'static str = "
 #[command(author, author, version)]
 #[command(about = BANNER)]
 pub struct Cli {
+    /// Verbosity
+    #[arg(
+        short,
+        long,
+        default_value_t = LevelFilter::Info,
+        value_parser = clap::builder::PossibleValuesParser::new(["TRACE", "DEBUG", "INFO", "WARN", "ERROR"])
+            .map(|s| s.parse::<LevelFilter>().unwrap()),
+    )]
+    pub verbosity: LevelFilter,
+
     #[command(subcommand)]
     pub command: Option<Commands>,
 }

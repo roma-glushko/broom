@@ -69,7 +69,7 @@ fn main() {
 
     dispatch.apply().expect("Couldn't start logger.");
 
-    log::set_max_level(LevelFilter::Debug);
+    log::set_max_level(cli.verbosity);
 
     match &cli.command {
         Some(Commands::Config) => {
